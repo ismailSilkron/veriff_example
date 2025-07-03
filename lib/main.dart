@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:veriff_flutter_example/screen/veriff/model/verify_age.dart';
 
 void main() {
   runApp(const MyApp());
@@ -108,6 +109,30 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
+            ),
+
+            TextButton(
+              onPressed: () async {
+                final result = await VerifyAge.startVeriffSession();
+
+                if (!context.mounted) return;
+
+                final msg =
+                    result.status
+                        ? "Success Verify Age"
+                        : result.errMsg ?? "Fail Verify Age";
+
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(msg),
+                    backgroundColor:
+                        result.status
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).colorScheme.error,
+                  ),
+                );
+              },
+              child: Text("Start Veriff"),
             ),
           ],
         ),
