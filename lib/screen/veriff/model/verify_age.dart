@@ -4,7 +4,7 @@ import 'package:veriff_flutter/veriff_flutter.dart';
 
 class VerifyAge {
   static const String _veriffEndpoint =
-      "http://staging.vendron.com/v2/test/generate_veriff_session";
+      "https://staging.vendron.com/v2/test/generate_veriff_session";
 
   static Future<VeriffResult> startVeriffSession() async {
     bool isSuccess = false;
