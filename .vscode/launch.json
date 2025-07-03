@@ -8,7 +8,8 @@
       "name": "Veriff App",
       "request": "launch",
       "type": "dart",
-      "program": "lib/main.dart"
+      "program": "lib/main.dart",
+      "flutterMode": "release"
     }
   ]
 }
